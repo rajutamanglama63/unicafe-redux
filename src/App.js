@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 import { useDispatch, useSelector } from "react-redux";
-import { good } from "./reducer";
+import { bad, good, ok, reset } from "./reducer";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -8,34 +7,29 @@ const App = () => {
 
   const goodFeedback = () => {
     dispatch(good());
-=======
-import { useSelector, useDispatch } from "react-redux";
+  };
 
-const App = () => {
-  const dispatch = useDispatch();
-  const data = useSelector((state) => {
-    return state;
-  });
-  const good = () => {
-    dispatch({
-      type: "GOOD",
-    });
->>>>>>> ee9d099bdd8e1f7aa8d92063378aa166775f6da3
+  const badFeedback = () => {
+    dispatch(bad());
+  };
+
+  const okFeedback = () => {
+    dispatch(ok());
+  };
+
+  const resetZero = () => {
+    dispatch(reset());
   };
 
   return (
     <div>
       <button onClick={goodFeedback}>good</button>
-      <button>ok</button>
-      <button>bad</button>
-      <button>reset stats</button>
-<<<<<<< HEAD
+      <button onClick={okFeedback}>ok</button>
+      <button onClick={badFeedback}>bad</button>
+      <button onClick={resetZero}>reset stats</button>
       <div>good {feedback.good}</div>
-=======
-      <div>good {data.good}</div>
->>>>>>> ee9d099bdd8e1f7aa8d92063378aa166775f6da3
-      <div>ok</div>
-      <div>bad</div>
+      <div>ok {feedback.ok}</div>
+      <div>bad {feedback.bad}</div>
     </div>
   );
 };
